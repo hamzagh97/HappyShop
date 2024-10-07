@@ -95,9 +95,10 @@ const SidebarSearchHook = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
+    const delayDebounceFn = setTimeout(() => {
       getProduct();
     }, 1000);
+    return () => clearTimeout(delayDebounceFn);
   }, [From, To]);
 
   return [category, brand, clickCategory, clickBrand, priceFrom, priceTo];

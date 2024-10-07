@@ -23,6 +23,9 @@ const ViewProductsDetalisHook = (prodID) => {
   const oneCategory = useSelector((state) => state.allCategory.oneCategory);
   const oneBrand = useSelector((state) => state.allBrand.oneBrand);
   const productLike = useSelector((state) => state.allproducts.productLike);
+
+  console.log(oneBrand);
+
   //to show products item
   let item = [];
   if (oneProducts?.data) item = oneProducts.data;
@@ -30,11 +33,11 @@ const ViewProductsDetalisHook = (prodID) => {
 
   console.log(oneProducts);
 
-  // useEffect(() => {
-  //   if (item.category) dispatch(getOneCategory(item.category));
-  //   if (item.brand) dispatch(getOneBrand(item.brand));
-  //   if (item.category) dispatch(getProductLike(item.category));
-  // }, [item.category, item.brand]);
+  useEffect(() => {
+    if (item.category) dispatch(getOneCategory(item.category));
+    if (item.brand) dispatch(getOneBrand(item.brand));
+    if (item.category) dispatch(getProductLike(item.category));
+  }, [item.category, item.brand]);
 
   //to view images gallery
   let images = [];
